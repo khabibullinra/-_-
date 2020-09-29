@@ -10,8 +10,10 @@
 
 Исходные данные для построения выберите произвольно из диапазоне указанного в таблице \ref{table:data1}, значения дебитов после запуска скважины из таблицы \ref{table:data2}. 
 
+
+
 \begin{table}[h!]
-	\ttabbox
+%	\ttabbox
 %	\centering
 	{
 		\caption{Исходные данные для задачи}
@@ -45,10 +47,10 @@
 
 %\floatsetup[table]{capposition=bottom}
 
-\begin{figure}[h!]\TopFloatBoxes
-	\begin{floatrow}
-		\ttabbox[\FBwidth]{\label{table:data2}}%
-		{
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
 			\begin{tabular}{|c|c|}
 				\hline
 				\rowcolor{lightgray}	Время, часы& Дебит, м$^3$/сут  \\
@@ -64,29 +66,28 @@
 				256 & 0 \\
 				\hline
 			\end{tabular}
-			\caption{Пример значений дебитов после запуска.}
-		}
-		\killfloatstyle
-		\ffigbox{\caption{График дебитов}\label{ris:data2_chart}}%
-		        {
-		        	\begin{tikzpicture}
-						\begin{axis}
-							[axis lines = left,
-							width = 0.48\textwidth,
-							xlabel={$t$ часы},
-							ylabel={$Q$ м$^3$/сут} 
-							],
-							\addplot+[const plot]
-							coordinates
-							{(0,0) (0,10)    (10,20)  (30,30)   (56,0) (256,0)};
-						\end{axis}
-					\end{tikzpicture}
-				}
-		    %
-	\end{floatrow}
+			
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}
+				[axis lines = left,
+				width = \textwidth,
+				xlabel={$t$ часы},
+				ylabel={$Q$ м$^3$/сут} 
+				],
+				\addplot+[const plot]
+				coordinates
+				{(0,0) (0,10)    (10,20)  (30,30)   (56,0) (256,0)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{minipage}
+	\caption{Пример значений дебитов после запуска.} \label{fig:mult2}
 
+	
 \end{figure}
-
 
 Для проверки корректности расчета ваш метод расчета должен позволять быстро провести расчеты для любых значений параметров из заданного диапазона значений и для любых значений дебитов. Для этого рекомендуется создать расчетный модуль в Excel, который позволил бы быстро провести расчет по введенным исходным данным.
 
