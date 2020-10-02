@@ -69,25 +69,47 @@
 
 Исследования почти всегда идут рядом с неопределённостями различного вида. Неопределённости могут быть связаны с параметрами изучаемых объектов. Например планируя пробурить скважину, мы хотели бы знать ее дебит. Мы знаем, что дебит будет зависеть от проницаемости пласта, но проницаемость мы не знаем -- мы находимся в ситуации неопределённости. 
 
-Мы  можем описать неопределённость проницаемости задав вероятностное распределение значения проницаемости (статистический подход).
+Мы  можем описать неопределённость проницаемости задав вероятные исходы для значения проницаемости. Пусть мы ожидаем, что величина проницаемости задаётся следующим распределением:
+\begin{itemize}
+	\item $k_1 = 10$ мД с вероятность $P_1 = 0.2$; 
+	\item $k_2 = 20$ мД с вероятность $P_2 = 0.6$; 
+	\item $k_3 = 30$ мД с вероятность $P_3 = 0.2$. 
+\end{itemize}
+
+тогда дебиты скважины могут определены из выражения
+
+$$
+Q = \frac{kh}{18.41 \mu B} \frac{\Delta P}{  \left( ln\dfrac{r_e}{r_w} + S\right) }
+$$
+
+а доход от эксплуатации скважины в течении года 
+
+\begin{equation}
+	MV = Q OP  Price
+\end{equation}
 
 
 
-\begin{tikzpicture}[declare function={
-		f(\x,\y)=(\y/\x)* (1/sqrt(2*pi*1))*exp(-(ln(\x/\y)-0)^2/(2*1);
-		g(\x,\y)=(1/sqrt(2*pi*1))*exp(-(\x-\y)^2/(2*1);
-	}]
-	\begin{axis}[every axis plot post/.append style={
-			mark=none,domain=0.01:200,samples=50,smooth},		
-		axis x line*=bottom, % no box around the plot, only x and y axis
-		axis y line*=left, % the * suppresses the arrow tips
-		enlargelimits=upper] % extend the axes a bit to the right and top
-		\addplot[color=green!60!black,
-				 very thick]
-		{f(x,100)};	
+\begin{figure}
 	
-	\end{axis}
-\end{tikzpicture} 
+	\begin{tikzpicture}[declare function={
+			f(\x,\y)=(\y/\x)* (1/sqrt(2*pi*1))*exp(-(ln(\x/\y)-0)^2/(2*1);
+			g(\x,\y)=(1/sqrt(2*pi*1))*exp(-(\x-\y)^2/(2*1);
+		}]
+		\begin{axis}[every axis plot post/.append style={
+				mark=none,domain=0.01:200,samples=50,smooth},		
+			axis x line*=bottom, % no box around the plot, only x and y axis
+			axis y line*=left, % the * suppresses the arrow tips
+			enlargelimits=upper] % extend the axes a bit to the right and top
+			\addplot[color=green!60!black,
+			very thick]
+			{f(x,100)};	
+			
+		\end{axis}
+	\end{tikzpicture} 
+
+\end{figure}
+
 
 
 \section{Ценность информации полученной в ходе исследований -- VOI}
