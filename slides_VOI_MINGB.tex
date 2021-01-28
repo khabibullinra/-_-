@@ -1,0 +1,38 @@
+% XeLaTeX document
+\documentclass[aspectratio=169, 11pt]{beamer} % для экранов 16:9 оставить
+
+% \documentclass[11pt]{beamer} % для экранов 4:3 оставить
+
+\newcommand{\university}{Московский институт нефтегазового бизнеса}
+\newcommand{\faculty}{}
+\newcommand{\department}{департамент}
+\newcommand{\city}{Москва}
+\newcommand{\num}{ № 1}
+\newcommand{\docname}{Исследование скважин и пластов. Введение}
+\newcommand{\tutorname}{Хабибуллин Р.А.}
+\newcommand{\studentname}{студент}
+\newcommand{\group}{группы нет}
+
+
+% Редактируем: конфигурация, личные настройки: имя, название предмета и пр. для титульной страницы и метаданных документа здесь
+\include{slides/config}
+
+
+% настройка метаданных документа
+\institute[\university]{\university \\ \faculty}
+\title[\docname]{Принятие решений в условиях неопределённости. Приложения к нефтяному инжинирингу. VOI, деревья решений.}
+\author[\tutorname]{\small Преподаватель: \tutorname}
+\date{\the\year} 
+
+\include{templates/titlepage}
+
+\begin{document}
+
+% Редактируем: всё остальное: вступление, др. этапы, заключение, приложение
+\include{slides/content_VOI_MINGB}
+
+
+% Не редактируем: Страница библиографии (формируется автоматически из книжек, указанных в refs.bib и пометок \cite{имя_источника} в тексте)
+%\include{templates/bib-page}
+
+\end{document}
